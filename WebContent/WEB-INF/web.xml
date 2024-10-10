@@ -1,0 +1,65 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" 
+         id="WebApp_ID" version="3.1">
+
+    <display-name>shopping-cart</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- DefaultServlet 설정: 디렉토리 인덱싱 활성화 -->
+    <servlet>
+        <servlet-name>false</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value> <!-- 디렉토리 인덱싱 활성화 -->
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/</url-pattern> <!-- 루트 경로에 대해 디렉토리 인덱싱을 적용 -->
+    </servlet-mapping>
+
+    <!-- boardWriteProcess.jsp를 위한 Multipart 설정 -->
+    <servlet>
+        <servlet-name>boardWriteProcess</servlet-name>
+        <jsp-file>/boardWriteProcess.jsp</jsp-file>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size> <!-- 최대 파일 크기 10MB -->
+            <max-request-size>20971520</max-request-size> <!-- 최대 요청 크기 20MB -->
+            <file-size-threshold>1024</file-size-threshold> <!-- 메모리 임계값 -->
+        </multipart-config>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>boardWriteProcess</servlet-name>
+        <url-pattern>/boardWriteProcess.jsp</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    <servlet-name>FansMessage</servlet-name>
+    <servlet-class>com.shashi.srv.FansMessage</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>FansMessage</servlet-name>
+    <url-pattern>/FansMessage</url-pattern>
+</servlet-mapping>
+    
+    
+        <!-- 세션 설정 추가 -->
+    <session-config>
+        <session-timeout>60</session-timeout> <!-- 타임아웃을 60분으로 설정 -->
+    </session-config>
+    
+        <error-page>
+    <error-code>500</error-code>
+    <location>/error.jsp</location>
+   </error-page>
+
+</web-app>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product>
+        <id>P001</id>
+        <name>Product 1</name>
+        <type>Electronics</type>
+        <price>100.0</price>
+        <description>This is the first product.</description>
+    </product>
+    <product>
+        <id>P002</id>
+        <name>Product 2</name>
+        <type>Electronics</type>
+        <price>200.0</price>
+        <description>This is the second product.</description>
+    </product>
+    <product>
+        <id>P003</id>
+        <name>Product 3</name>
+        <type>Home Appliance</type>
+        <price>300.0</price>
+        <description>This is the third product.</description>
+    </product>
+    <product>
+        <id>P004</id>
+        <name>Product 4</name>
+        <type>Furniture</type>
+        <price>400.0</price>
+        <description>This is the fourth product.</description>
+    </product>
+</products>
